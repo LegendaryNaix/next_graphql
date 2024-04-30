@@ -1,12 +1,52 @@
 {
-  "name": "next_graphql",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "airbnb-clone-next-js-graphql",
+  "private": false,
+  "description": "Airbnb clone with Next.js Apollo Graphql MongoDB ",
+  "keywords": [
+    "graphql,tools,schema,merge,combine,resolvers,fast,simple,starter,nextjs,typescript"
+  ],
+  "author": "Salah Eddine Lalami",
+  "license": "MIT",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "yarn generate && next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "generate": "yarn schema && graphql-codegen --config codegen.yml",
+    "schema": "node ./scripts/generateSchema"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "dependencies": {
+    "@apollo/client": "^3.5.7",
+    "@graphql-codegen/cli": "^2.3.1",
+    "@graphql-codegen/typescript": "^2.4.2",
+    "apollo-server-micro": "^3.5.0",
+    "bootstrap": "^5.3.3",
+    "deepmerge": "^4.2.2",
+    "fast-graphql": "^2.0.2",
+    "graphql": "^16.2.0",
+    "lodash": "^4.17.21",
+    "micro": "^9.3.4",
+    "mongoose": "^6.1.6",
+    "mongoose-autopopulate": "^0.16.0",
+    "next": "12.0.4",
+    "next-plugin-antd-less": "^1.8.0",
+    "react": "17.0.2",
+    "react-bootstrap": "^2.10.2",
+    "react-dom": "17.0.2",
+    "yarn": "^1.22.22"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.178",
+    "@types/node": "16.11.7",
+    "@types/react": "17.0.35",
+    "babel-plugin-import": "^1.13.3",
+    "eslint": "7.32.0",
+    "eslint-config-next": "12.0.4",
+    "eslint-config-prettier": "^8.3.0",
+    "prettier": "^2.4.1",
+    "typescript": "4.5.2"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  }
 }

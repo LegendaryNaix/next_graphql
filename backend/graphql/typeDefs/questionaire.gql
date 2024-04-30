@@ -1,0 +1,35 @@
+type Questionaire {
+  _id: ID!
+  label: String
+  answer_type : Int
+  answer : Object
+}
+
+input InputQuestionaireType {
+  label: String
+  answer_type : Int
+  answer : Object
+}
+
+type Mutation {
+  createQuestionaire(body: InputQuestionaireType!): Questionaire
+  updateQuestionaire(_id: ID!, body: InputQuestionaireType!): Questionaire
+  deleteQuestionaire(_id: ID!): Questionaire
+}
+
+type PaginationType {
+  page: Int
+  pages: Int
+  count: Int
+}
+
+type QuestionaireEdgesType {
+  edges: [Questionaire]
+  pagination: PaginationType
+}
+
+type Query {
+  readQuestionaire(_id: ID!): Questionaire
+  listQuestionaire(page: Int, limit: Int, sortBy: String, sortOrder: String): QuestionaireEdgesType
+  searchQuestionaire(limit: Int, query: String!, fields: String!): [Questionaire]
+}
